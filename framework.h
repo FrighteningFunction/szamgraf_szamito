@@ -15,6 +15,10 @@ struct vec2 {
 	vec2 operator-(const vec2& v) const { return vec2(x - v.x, y - v.y); }
 	vec2 operator*(const vec2& v) const { return vec2(x * v.x, y * v.y); }
 	vec2 operator-() const { return vec2(-x, -y); }
+
+	vec2 invert() const {
+        return vec2(1.0f / x, 1.0f / y);
+	}
 };
 
 inline float dot(const vec2& v1, const vec2& v2) {
@@ -41,6 +45,10 @@ struct vec3 {
 	vec3 operator-(const vec3& v) const { return vec3(x - v.x, y - v.y, z - v.z); }
 	vec3 operator*(const vec3& v) const { return vec3(x * v.x, y * v.y, z * v.z); }
 	vec3 operator-()  const { return vec3(-x, -y, -z); }
+
+	vec3 invert() const {
+        return vec3(1.0f / x, 1.0f / y, 1.0f / z);
+    }
 };
 
 inline float dot(const vec3& v1, const vec3& v2) { return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z); }
@@ -70,6 +78,10 @@ struct vec4 {
 	vec4 operator-(const vec4& v)  const { return vec4(x - v.x, y - v.y, z - v.z, w - v.w); }
 	vec4 operator*(const vec4& v) const { return vec4(x * v.x, y * v.y, z * v.z, w * v.w); }
 	void operator+=(const vec4 right) { x += right.x; y += right.y; z += right.z; w += right.w; }
+
+	vec4 invert() const {
+        return vec4(1.0f / x, 1.0f / y, 1.0f / z, 1.0f / w);
+    }
 };
 
 inline float dot(const vec4& v1, const vec4& v2) {
